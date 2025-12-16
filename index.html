@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Taner | Computer Engineering Portfolio</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #00529b; /* UF Blue-ish */
+            --accent: #f37021; /* UF Orange-ish accent */
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --text-color: #333;
+            --bg-color: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-color); }
+        a { text-decoration: none; color: var(--primary); transition: 0.3s; }
+        a:hover { color: var(--accent); }
+        ul { list-style: none; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .section-title { font-size: 2rem; margin-bottom: 1.5rem; color: var(--dark); border-bottom: 2px solid var(--accent); display: inline-block; }
+        section { padding: 60px 0; }
+
+        /* --- HEADER & HERO --- */
+        header { background: var(--dark); color: #fff; padding: 20px 0; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        header h1 { font-size: 1.5rem; }
+        nav ul { display: flex; gap: 20px; }
+        nav a { color: #fff; font-weight: bold; }
+        
+        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
+        .hero h2 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.5rem; margin-bottom: 20px; }
+        .btn { display: inline-block; padding: 10px 30px; background: var(--accent); color: #fff; border-radius: 5px; font-weight: bold; }
+        .btn:hover { background: #d65a0c; color: #fff; }
+
+        /* --- PROJECTS GRID --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .project-card { background: var(--light); padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .project-card:hover { transform: translateY(-5px); }
+        .project-card h3 { margin-bottom: 10px; color: var(--primary); }
+        .tech-stack { font-size: 0.85rem; color: #666; font-style: italic; margin-bottom: 15px; }
+        .project-link { display: inline-block; margin-top: 15px; font-weight: bold; font-size: 0.9rem; }
+
+        /* --- SKILLS SECTION --- */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background: #e0e0e0; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--dark); color: #fff; text-align: center; padding: 20px 0; margin-top: 40px; }
+        .social-links { margin-top: 10px; }
+        .social-links a { color: #fff; margin: 0 10px; font-size: 1.2rem; }
+
+        /* --- RESPONSIVE --- */
+        @media(max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
+            header .container { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Matthew Taner</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Computer Engineering Student</h2>
+            <p>Hardware Design | Embedded Systems | Analog Circuits</p>
+            <a href="Matthew_Taner_Resume.pdf" class="btn" download>Download Resume</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                I am a Computer Engineering student at the <strong>University of Florida</strong> (Class of 2028) with a 3.91 GPA[cite: 5, 7, 8]. 
+                I have a passion for bridging the gap between hardware and software, with hands-on experience in CPU architecture, 
+                RF analysis, and analog circuit prototyping.
+            </p>
+            <br>
+            <p>
+                Currently, I am researching EV electrical systems with <strong>Gator Motorsports</strong> [cite: 41] and exploring audio electronics with the <strong>Audio Engineering Society</strong>[cite: 38].
+            </p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Technical Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>4-bit Pipelined CPU</h3>
+                    <p class="tech-stack">Logisim, Intel DE-10 Lite FPGA, Python, Assembly</p>
+                    <p>Engineered a 4-bit CPU with a 5-stage pipeline, achieving a 3.5x speedup over non-pipelined designs[cite: 12]. Developed a custom 16-instruction ISA and a Python assembler to streamline execution[cite: 13, 14].</p>
+                    <a href="https://github.com/YOUR_USERNAME/Pipelined-CPU" class="project-link" target="_blank">View on GitHub &rarr;</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Smart Home Sensor Network</h3>
+                    <p class="tech-stack">ESP32, C++, RF Analysis, RTL-SDR</p>
+                    <p>Deployed a 2.4GHz wireless sensor network using ESP32s[cite: 19]. Analyzed RF spectrum interference and traced packet loss to environmental obstructions using an RTL-SDR down-converter[cite: 20, 22].</p>
+                    <a href="https://github.com/YOUR_USERNAME/RF-Analysis-Project" class="project-link" target="_blank">View on GitHub &rarr;</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Analog Fuzz Pedal Prototype</h3>
+                    <p class="tech-stack">Analog Circuits, Breadboarding, Component Analysis</p>
+                    <p>Designed a single-transistor guitar fuzz pedal. Successfully substituted a PN2222 transistor for a 2N5088 by re-biasing resistor values to compensate for gain differences, restoring desired tonal characteristics[cite: 25, 26, 27].</p>
+                    <a href="https://github.com/YOUR_USERNAME/FuzzPedal" class="project-link" target="_blank">View on GitHub &rarr;</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">Core Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Digital Logic</span>
+                <span class="skill-tag">PCBA Design</span>
+                <span class="skill-tag">CPU Architecture</span>
+                <span class="skill-tag">VHDL</span>
+                <span class="skill-tag">Analog Circuit Analysis</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Linux/WSL</span>
+                <span class="skill-tag">GitHub</span>
+                <span class="skill-tag">Debugging & Validation</span>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h3>Get In Touch</h3>
+            <p>mattjamestaner@gmail.com | (925) 464-8729 | Fort Lauderdale, FL [cite: 3, 4]</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.8rem;">&copy; 2025 Matthew Taner</p>
+        </div>
+    </footer>
+
+</body>
+</html>
